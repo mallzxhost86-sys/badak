@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APPS BADAK WHATSAPP V2</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    font-family:Arial,sans-serif;
+    color:#fff;
+    background:
+        radial-gradient(circle at 20% 15%,#a00000,transparent 30%),
+        radial-gradient(circle at 85% 45%,#600000,transparent 35%),
+        linear-gradient(135deg,#300000,#080808 55%,#220000);
+}
+
+/* ================= LOGIN ================= */
+
+#loginPage{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.login-box{
+    width:min(92%,450px);
+    padding:45px 35px;
+    border:2px solid #ff1b1b;
+    border-radius:35px;
+    background:rgba(3,5,15,.96);
+    box-shadow:
+        0 0 25px rgba(255,0,0,.45),
+        inset 0 0 30px rgba(255,0,0,.05);
+}
+
+.login-logo{
+    width:90px;
+    height:90px;
+    margin:0 auto 25px;
+    border:2px solid #ff2424;
+    border-radius:25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#ff3030;
+}
+
+.login-logo svg{
+    width:50px;
+    height:50px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2.5;
+}
+
+.login-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.login-title h1{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.login-title p{
+    color:#999;
+    font-size:14px;
+}
+
+.login-group{
+    margin-bottom:22px;
+}
+
+.login-group label{
+    display:block;
+    color:#ff4747;
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.login-group input{
+    width:100%;
+    height:58px;
+    padding:0 20px;
+    background:#02050b;
+    color:#fff;
+    border:1px solid rgba(255,0,0,.45);
+    border-radius:17px;
+    font-size:16px;
+    outline:none;
+}
+
+.login-group input:focus{
+    border-color:#ff2222;
+    box-shadow:0 0 15px rgba(255,0,0,.25);
+}
+
+.login-btn{
+    width:100%;
+    height:60px;
+    border:none;
+    border-radius:35px;
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    background:linear-gradient(100deg,#b40000,#ff1010,#ff4848);
+    box-shadow:0 8px 25px rgba(255,0,0,.3);
+}
+
+.login-error{
+    display:none;
+    margin-top:18px;
+    padding:14px;
+    text-align:center;
+    color:#ff5555;
+    border:1px solid #ff3030;
+    background:rgba(255,0,0,.08);
+    border-radius:15px;
+}
+
+/* ================= ACCOUNT INFO ================= */
+
+#accountInfo{
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:9999;
+    padding:12px 18px;
+    border:1px solid #ff3030;
+    border-radius:15px;
+    background:#09090f;
+    color:#fff;
+    box-shadow:0 0 20px rgba(255,0,0,.3);
+    font-size:13px;
+    text-align:right;
+}
+
+/* ================= WEBSITE ================= */
+
+#websitePage{
+    display:none;
+}
+
+.container{
+    width:min(92%,1120px);
+    margin:20px auto 50px;
+}
+
+.header{
+    min-height:220px;
+    border:2px solid #ff1b1b;
+    border-radius:42px;
+    background:rgba(3,5,15,.94);
+    box-shadow:0 0 25px rgba(255,0,0,.4);
+    display:flex;
+    align-items:center;
+    padding:35px 55px;
+}
+
+.logo{
+    width:135px;
+    height:135px;
+    border:2px solid #ff2424;
+    border-radius:35px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-right:40px;
+    color:#ff3030;
+}
+
+.logo svg{
+    width:65px;
+    height:65px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2.5;
+}
+
+.header-text h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.header-text p{
+    font-size:22px;
+    color:#999;
+}
+
+.card{
+    margin-top:75px;
+    padding:70px;
+    border-radius:42px;
+    background:linear-gradient(135deg,#121218,#04070f);
+    box-shadow:0 0 35px rgba(255,0,0,.15);
+}
+
+.group{
+    margin-bottom:55px;
+}
+
+label{
+    display:block;
+    color:#ff4747;
+    font-size:23px;
+    margin-bottom:25px;
+}
+
+input,select{
+    width:100%;
+    height:150px;
+    padding:0 50px;
+    background:#02050b;
+    color:#aaa;
+    border:2px solid rgba(255,0,0,.35);
+    border-radius:38px;
+    font-size:29px;
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:#ff2222;
+    box-shadow:0 0 20px rgba(255,0,0,.25);
+}
+
+.go-btn{
+    width:100%;
+    height:150px;
+    border:none;
+    border-radius:80px;
+    color:#fff;
+    font-size:30px;
+    font-weight:bold;
+    cursor:pointer;
+    background:linear-gradient(100deg,#b40000,#ff1010,#ff4848);
+    box-shadow:0 10px 35px rgba(255,0,0,.3);
+}
+
+#success{
+    display:none;
+    margin-top:30px;
+    padding:22px;
+    text-align:center;
+    border-radius:20px;
+    background:rgba(0,120,40,.2);
+    border:1px solid #00ff55;
+}
+
+#success strong{
+    color:#00ff55;
+    font-size:23px;
+}
+
+.check-btn{
+    display:block;
+    width:190px;
+    height:55px;
+    margin:25px auto 0;
+    border-radius:30px;
+    font-size:16px;
+    background:rgba(100,0,0,.35);
+    border:1px solid #ff3030;
+    color:#ff5555;
+    cursor:pointer;
+}
+
+.logout-btn{
+    display:block;
+    margin:20px auto 0;
+    padding:12px 22px;
+    border-radius:25px;
+    background:rgba(100,0,0,.35);
+    border:1px solid #ff3030;
+    color:#ff5555;
+    cursor:pointer;
+}
+
+/* ================= CHECK PAGE ================= */
+
+#checkPage{
+    display:none;
+}
+
+.check-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.check-title h1{
+    font-size:32px;
+}
+
+.check-title p{
+    color:#999;
+    margin-top:8px;
+}
+
+.back-btn{
+    padding:14px 22px;
+    border-radius:25px;
+    background:rgba(120,0,0,.4);
+    color:#ff5555;
+    border:1px solid #ff3030;
+    cursor:pointer;
+}
+
+.total-box{
+    padding:25px;
+    border-radius:25px;
+    background:rgba(5,5,10,.85);
+    border:1px solid rgba(255,0,0,.35);
+    margin-bottom:25px;
+}
+
+.total-box span{
+    color:#ff4040;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.number-list{
+    display:grid;
+    gap:18px;
+}
+
+.number-item{
+    padding:22px;
+    border-radius:24px;
+    background:rgba(8,8,14,.92);
+    border:1px solid rgba(255,30,30,.3);
+    box-shadow:0 0 20px rgba(255,0,0,.08);
+}
+
+.number{
+    font-size:21px;
+    font-weight:bold;
+    margin-bottom:8px;
+    word-break:break-word;
+}
+
+.method{
+    color:#999;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.status{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.online{
+    color:#00ff55;
+    border:1px solid #00ff55;
+    background:rgba(0,255,80,.08);
+}
+
+.offline{
+    color:#ff4444;
+    border:1px solid #ff4444;
+    background:rgba(255,0,0,.08);
+}
+
+.countdown{
+    color:#00ff55;
+    font-weight:bold;
+}
+
+.empty{
+    text-align:center;
+    padding:60px 20px;
+    color:#777;
+    border:1px dashed #600000;
+    border-radius:25px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    .header{
+        min-height:155px;
+        padding:20px;
+        border-radius:30px;
+    }
+
+    .logo{
+        width:90px;
+        height:90px;
+        border-radius:25px;
+        margin-right:20px;
+    }
+
+    .logo svg{
+        width:48px;
+    }
+
+    .header-text h1{
+        font-size:21px;
+    }
+
+    .header-text p{
+        font-size:13px;
+    }
+
+    .card{
+        margin-top:45px;
+        padding:40px 25px;
+        border-radius:30px;
+    }
+
+    label{
+        font-size:18px;
+    }
+
+    input,select{
+        height:105px;
+        padding:0 28px;
+        font-size:20px;
+        border-radius:28px;
+    }
+
+    .go-btn{
+        height:105px;
+        font-size:23px;
+    }
+
+    .check-header{
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .check-title h1{
+        font-size:24px;
+    }
+
+    .check-title p{
+        font-size:13px;
+    }
+
+    .back-btn{
+        padding:11px 15px;
+        font-size:12px;
+    }
+
+    .number{
+        font-size:18px;
+    }
+
+    #accountInfo{
+        top:8px;
+        right:8px;
+        font-size:11px;
+        padding:9px 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<div id="loginPage">
+
+    <div class="login-box">
+
+        <div class="login-logo">
+            <svg viewBox="0 0 64 64">
+                <path d="M32 7a24 24 0 0 0-20.5 36.5L8 56l13-3.5A24 24 0 1 0 32 7z"/>
+                <path d="M22 21c1-2 3-2 4 0l2 4c.5 1 .2 2-1 3l-2 1c2 4 5 6 9 8l2-2c1-1 2-1 3 0l4 2c1 1 1 3 0 4-2 2-5 3-8 2-9-3-16-10-19-19-1-3 0-6 2-8z"/>
+            </svg>
+        </div>
+
+        <div class="login-title">
+            <h1>BADAK WHATSAPP</h1>
+            <p>Login untuk melanjutkan</p>
+        </div>
+
+        <div class="login-group">
+            <label>USERNAME</label>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Masukkan username"
+                autocomplete="off">
+        </div>
+
+        <div class="login-group">
+            <label>PASSWORD</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Masukkan password"
+                autocomplete="off">
+        </div>
+
+        <button class="login-btn" onclick="login()">
+            🔐 LOGIN
+        </button>
+
+        <div class="login-error" id="loginError"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     WEBSITE
+===================================================== -->
+
+<div id="websitePage">
+
+<div class="container">
+
+    <div id="homePage">
+
+        <div class="header">
+
+            <div class="logo">
+
+                <svg viewBox="0 0 64 64">
+                    <path d="M32 7a24 24 0 0 0-20.5 36.5L8 56l13-3.5A24 24 0 1 0 32 7z"/>
+                    <path d="M22 21c1-2 3-2 4 0l2 4c.5 1 .2 2-1 3l-2 1c2 4 5 6 9 8l2-2c1-1 2-1 3 0l4 2c1 1 1 3 0 4-2 2-5 3-8 2-9-3-16-10-19-19-1-3 0-6 2-8z"/>
+                </svg>
+
+            </div>
+
+            <div class="header-text">
+
+                <h1>BADAK WHATSAPP</h1>
+
+                <p>
+                    Status: Active | Method: 4 Available
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="group">
+
+                <label>TARGET NUMBER</label>
+
+                <input
+                    type="tel"
+                    id="number"
+                    placeholder="628xxxxxxxxxx">
+
+            </div>
+
+
+            <div class="group">
+
+                <label>SELECT METHOD</label>
+
+                <select id="method">
+
+                    <option value="">
+                        Select - Badak
+                    </option>
+
+                    <option value="Badak">
+                        Badak
+                    </option>
+
+                    <option value="Badak Medium">
+                        Badak Medium
+                    </option>
+
+                    <option value="Badak Hard">
+                        Badak Hard
+                    </option>
+
+                    <option value="Badak Extreme">
+                        Badak Extreme
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="go-btn"
+                onclick="enterNumber()">
+
+                ➤ &nbsp; Enter
+
+            </button>
+
+
+            <div id="success">
+
+                <strong>✓ SUCCESS</strong>
+                <br>
+
+                Nomor berhasil ditambahkan.
+
+            </div>
+
+
+            <button
+                class="check-btn"
+                onclick="showCheckPage()">
+
+                🔍 Cek Nomor
+
+            </button>
+
+
+            <button
+                class="logout-btn"
+                onclick="logout()">
+
+                🚪 Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         CHECK NOMOR
+    ================================================= -->
+
+    <div id="checkPage">
+
+        <div class="check-header">
+
+            <div class="check-title">
+
+                <h1>📱 CEK NOMOR</h1>
+
+                <p>
+                    Daftar nomor yang telah dimasukkan
+                </p>
+
+            </div>
+
+            <button
+                class="back-btn"
+                onclick="showHomePage()">
+
+                ← Kembali
+
+            </button>
+
+        </div>
+
+
+        <div class="total-box">
+
+            Total Nomor:
+            <span id="totalNumber">0</span>
+
+        </div>
+
+
+        <div
+            class="number-list"
+            id="numberList">
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   DATABASE AKUN
+===================================================== */
+
+const accounts = {
+
+    user101:{password:"BdK@101x",duration:5},
+    user102:{password:"BdK@102x",duration:5},
+    user103:{password:"BdK@103x",duration:5},
+    user104:{password:"BdK@104x",duration:5},
+    user105:{password:"BdK@105x",duration:5},
+    user106:{password:"BdK@106x",duration:5},
+    user107:{password:"BdK@107x",duration:5},
+    user108:{password:"BdK@108x",duration:5},
+    user109:{password:"BdK@109x",duration:5},
+    user110:{password:"BdK@110x",duration:5},
+
+    user111:{password:"BdK@111x",duration:10},
+    user112:{password:"BdK@112x",duration:10},
+    user113:{password:"BdK@113x",duration:10},
+    user114:{password:"BdK@114x",duration:10},
+    user115:{password:"BdK@115x",duration:10},
+    user116:{password:"BdK@116x",duration:10},
+    user117:{password:"BdK@117x",duration:10},
+    user118:{password:"BdK@118x",duration:10},
+    user119:{password:"BdK@119x",duration:10},
+    user120:{password:"BdK@120x",duration:10},
+
+    user121:{password:"BdK@121x",duration:15},
+    user122:{password:"BdK@122x",duration:15},
+    user123:{password:"BdK@123x",duration:15},
+    user124:{password:"BdK@124x",duration:15},
+    user125:{password:"BdK@125x",duration:15},
+    user126:{password:"BdK@126x",duration:15},
+    user127:{password:"BdK@127x",duration:15},
+    user128:{password:"BdK@128x",duration:15},
+    user129:{password:"BdK@129x",duration:15},
+    user130:{password:"BdK@130x",duration:15},
+
+    user131:{password:"BdK@131x",duration:30},
+    user132:{password:"BdK@132x",duration:30},
+    user133:{password:"BdK@133x",duration:30},
+    user134:{password:"BdK@134x",duration:30},
+    user135:{password:"BdK@135x",duration:30},
+    user136:{password:"BdK@136x",duration:30},
+    user137:{password:"BdK@137x",duration:30},
+    user138:{password:"BdK@138x",duration:30},
+    user139:{password:"BdK@139x",duration:30},
+    user140:{password:"BdK@140x",duration:30},
+    user141:{password:"BdK@141x",duration:30},
+    user142:{password:"BdK@142x",duration:30},
+    user143:{password:"BdK@143x",duration:30},
+    user144:{password:"BdK@144x",duration:30},
+    user145:{password:"BdK@145x",duration:30},
+    user146:{password:"BdK@146x",duration:30},
+    user147:{password:"BdK@147x",duration:30},
+    user148:{password:"BdK@148x",duration:30},
+    user149:{password:"BdK@149x",duration:30},
+    user150:{password:"BdK@150x",duration:30},
+
+    user151:{password:"BdK@151x",duration:null},
+    user152:{password:"BdK@152x",duration:null},
+    user153:{password:"BdK@153x",duration:null},
+    user154:{password:"BdK@154x",duration:null},
+    user155:{password:"BdK@155x",duration:null},
+    user156:{password:"BdK@156x",duration:null},
+    user157:{password:"BdK@157x",duration:null},
+    user158:{password:"BdK@158x",duration:null},
+    user159:{password:"BdK@159x",duration:null},
+    user160:{password:"BdK@160x",duration:null},
+    user161:{password:"BdK@161x",duration:null},
+    user162:{password:"BdK@162x",duration:null},
+    user163:{password:"BdK@163x",duration:null},
+    user164:{password:"BdK@164x",duration:null},
+    user165:{password:"BdK@165x",duration:null},
+    user166:{password:"BdK@166x",duration:null},
+    user167:{password:"BdK@167x",duration:null},
+    user168:{password:"BdK@168x",duration:null},
+    user169:{password:"BdK@169x",duration:null},
+    user170:{password:"BdK@170x",duration:null},
+
+    user171:{password:"BdK@171x",duration:5},
+    user172:{password:"BdK@172x",duration:5},
+
+    user173:{password:"BdK@173x",duration:10},
+    user174:{password:"BdK@174x",duration:10},
+
+    user175:{password:"BdK@175x",duration:15},
+    user176:{password:"BdK@176x",duration:15},
+
+    user177:{password:"BdK@177x",duration:30},
+    user178:{password:"BdK@178x",duration:30},
+    user179:{password:"BdK@179x",duration:30}
+};
+
+
+/* =====================================================
+   LOGIN SYSTEM
+===================================================== */
+
+let currentUser = null;
+let accountTimer = null;
+
+
+function getAccountData(username){
+
+    const data =
+        localStorage.getItem(
+            "badakAccount_" + username
+        );
+
+    return data ? JSON.parse(data) : null;
+}
+
+
+function saveAccountData(username,data){
+
+    localStorage.setItem(
+        "badakAccount_" + username,
+        JSON.stringify(data)
+    );
+
+}
+
+
+function login(){
+
+    const username =
+        document.getElementById("username")
+        .value.trim();
+
+    const password =
+        document.getElementById("password")
+        .value;
+
+    const error =
+        document.getElementById("loginError");
+
+
+    if(!accounts[username]){
+
+        error.innerHTML =
+            "❌ Username tidak ditemukan.";
+
+        error.style.display =
+            "block";
+
+        return;
+    }
+
+
+    if(accounts[username].password !== password){
+
+        error.innerHTML =
+            "❌ Password salah.";
+
+        error.style.display =
+            "block";
+
+        return;
+    }
+
+
+    const account =
+        accounts[username];
+
+
+    let saved =
+        getAccountData(username);
+
+
+    /*
+       Countdown mulai pada login pertama.
+    */
+
+    if(!saved){
+
+        if(account.duration === null){
+
+            saved = {
+                unlimited:true,
+                endTime:null
+            };
+
+        }else{
+
+            saved = {
+
+                unlimited:false,
+
+                endTime:
+                    Date.now() +
+                    account.duration *
+                    24 *
+                    60 *
+                    60 *
+                    1000
+
+            };
+
+        }
+
+        saveAccountData(
+            username,
+            saved
+        );
+
+    }
+
+
+    /*
+       Periksa masa berlaku.
+    */
+
+    if(
+        !saved.unlimited &&
+        Date.now() >= Number(saved.endTime)
+    ){
+
+        error.innerHTML =
+            "⛔ AKUN SUDAH EXPIRED.<br>" +
+            "Akses tidak tersedia lagi.";
+
+        error.style.display =
+            "block";
+
+        return;
+    }
+
+
+    /* Login berhasil */
+
+    currentUser =
+        username;
+
+
+    error.style.display =
+        "none";
+
+
+    document.getElementById("loginPage")
+        .style.display = "none";
+
+
+    document.getElementById("websitePage")
+        .style.display = "block";
+
+
+    document.getElementById("username")
+        .value = "";
+
+    document.getElementById("password")
+        .value = "";
+
+
+    showAccountInfo();
+
+}
+
+
+/* =====================================================
+   ACCOUNT COUNTDOWN
+===================================================== */
+
+function showAccountInfo(){
+
+    let old =
+        document.getElementById(
+            "accountInfo"
+        );
+
+
+    if(old){
+        old.remove();
+    }
+
+
+    const info =
+        document.createElement("div");
+
+
+    info.id =
+        "accountInfo";
+
+
+    document.body.appendChild(info);
+
+
+    updateAccountCountdown();
+
+
+    clearInterval(accountTimer);
+
+
+    accountTimer =
+        setInterval(
+            updateAccountCountdown,
+            1000
+        );
+
+}
+
+
+function updateAccountCountdown(){
+
+    if(!currentUser){
+        return;
+    }
+
+
+    const data =
+        getAccountData(
+            currentUser
+        );
+
+
+    const info =
+        document.getElementById(
+            "accountInfo"
+        );
+
+
+    if(!data || !info){
+        return;
+    }
+
+
+    if(data.unlimited){
+
+        info.innerHTML = `
+            👤 ${escapeHTML(currentUser)}
+            <br>
+            <span style="color:#00ff55">
+                ♾️ AKSES UNLIMITED
+            </span>
+        `;
+
+        return;
+    }
+
+
+    const remaining =
+        Number(data.endTime) -
+        Date.now();
+
+
+    if(remaining <= 0){
+
+        clearInterval(accountTimer);
+
+
+        info.innerHTML = `
+            👤 ${escapeHTML(currentUser)}
+            <br>
+            <span style="color:#ff3333">
+                ⛔ AKSES EXPIRED
+            </span>
+        `;
+
+
+        setTimeout(function(){
+
+            alert(
+                "Masa akses akun " +
+                currentUser +
+                " telah habis."
+            );
+
+
+            logout();
+
+        },300);
+
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            remaining /
+            (1000*60*60*24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (remaining %
+            (1000*60*60*24)) /
+            (1000*60*60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (remaining %
+            (1000*60*60)) /
+            (1000*60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (remaining %
+            (1000*60)) /
+            1000
+        );
+
+
+    info.innerHTML = `
+        👤 ${escapeHTML(currentUser)}
+        <br>
+        <span style="color:#00ff55">
+            ⏱ Sisa Akses:
+            ${days}H
+            ${hours}J
+            ${minutes}M
+            ${seconds}D
+        </span>
+    `;
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout(){
+
+    clearInterval(accountTimer);
+
+    currentUser = null;
+
+
+    document.getElementById("websitePage")
+        .style.display = "none";
+
+
+    document.getElementById("loginPage")
+        .style.display = "flex";
+
+
+    const info =
+        document.getElementById(
+            "accountInfo"
+        );
+
+
+    if(info){
+        info.remove();
+    }
+
+}
+
+
+/* =====================================================
+   DATA NOMOR
+===================================================== */
+
+let numbers = [];
+let timers = [];
+
+
+/*
+   Mulai dengan list nomor kosong.
+*/
+
+localStorage.removeItem(
+    "badakNumbers"
+);
+
+
+function saveData(){
+
+    localStorage.setItem(
+        "badakNumbers",
+        JSON.stringify(numbers)
+    );
+
+}
+
+
+/* =====================================================
+   DURASI NOMOR
+===================================================== */
+
+function getDuration(method){
+
+    switch(method){
+
+        case "Badak":
+            return 9*60*60*1000;
+
+        case "Badak Medium":
+            return 30*60*60*1000;
+
+        case "Badak Hard":
+            return 2*24*60*60*1000;
+
+        case "Badak Extreme":
+            return 24*24*60*60*1000;
+
+        default:
+            return 9*60*60*1000;
+
+    }
+
+}
+
+
+/* =====================================================
+   TAMBAH NOMOR
+===================================================== */
+
+function enterNumber(){
+
+    const number =
+        document.getElementById(
+            "number"
+        ).value.trim();
+
+
+    const method =
+        document.getElementById(
+            "method"
+        ).value;
+
+
+    if(number === ""){
+
+        alert(
+            "Masukkan nomor terlebih dahulu."
+        );
+
+        return;
+    }
+
+
+    if(method === ""){
+
+        alert(
+            "Pilih metode terlebih dahulu."
+        );
+
+        return;
+    }
+
+
+    const status =
+        Math.random() < 0.5
+        ? "ONLINE"
+        : "OFFLINE";
+
+
+    const endTime =
+        Date.now() +
+        getDuration(method);
+
+
+    numbers.push({
+
+        id:
+            Date.now() +
+            Math.random(),
+
+        number:number,
+
+        method:method,
+
+        status:status,
+
+        endTime:endTime
+
+    });
+
+
+    saveData();
+
+
+    document.getElementById(
+        "success"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "number"
+    ).value = "";
+
+
+    document.getElementById(
+        "method"
+    ).value = "";
+
+
+    setTimeout(function(){
+
+        document.getElementById(
+            "success"
+        ).style.display = "none";
+
+    },3000);
+
+}
+
+
+/* =====================================================
+   CHECK PAGE
+===================================================== */
+
+function showCheckPage(){
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "checkPage"
+    ).style.display = "block";
+
+
+    renderNumbers();
+
+
+    window.scrollTo(0,0);
+
+}
+
+
+function showHomePage(){
+
+    document.getElementById(
+        "checkPage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "block";
+
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   RENDER NOMOR
+===================================================== */
+
+function renderNumbers(){
+
+    timers.forEach(
+        clearInterval
+    );
+
+
+    timers = [];
+
+
+    const list =
+        document.getElementById(
+            "numberList"
+        );
+
+
+    const total =
+        document.getElementById(
+            "totalNumber"
+        );
+
+
+    const now =
+        Date.now();
+
+
+    numbers =
+        numbers.filter(
+            item =>
+                Number(item.endTime) > now
+        );
+
+
+    saveData();
+
+
+    total.textContent =
+        numbers.length;
+
+
+    if(numbers.length === 0){
+
+        list.innerHTML = `
+            <div class="empty">
+                Belum ada nomor yang dimasukkan.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    list.innerHTML = "";
+
+
+    numbers.forEach(function(item){
+
+        const statusClass =
+            item.status === "ONLINE"
+            ? "online"
+            : "offline";
+
+
+        const element =
+            document.createElement("div");
+
+
+        element.className =
+            "number-item";
+
+
+        element.innerHTML = `
+
+            <div class="number">
+                📱 ${escapeHTML(item.number)}
+            </div>
+
+            <div class="method">
+                Method:
+                ${escapeHTML(item.method)}
+            </div>
+
+            <div class="status ${statusClass}">
+                ● ${item.status}
+            </div>
+
+            <div
+                class="countdown"
+                id="count-${item.id}">
+
+                Menghitung...
+
+            </div>
+
+        `;
+
+
+        list.appendChild(element);
+
+
+        startCountdown(
+            item.id,
+            item.endTime
+        );
+
+    });
+
+}
+
+
+/* =====================================================
+   COUNTDOWN NOMOR
+===================================================== */
+
+function startCountdown(
+    id,
+    endTime
+){
+
+    const element =
+        document.getElementById(
+            "count-" + id
+        );
+
+
+    if(!element){
+        return;
+    }
+
+
+    let timer;
+
+
+    function update(){
+
+        const distance =
+            Number(endTime) -
+            Date.now();
+
+
+        if(distance <= 0){
+
+            clearInterval(timer);
+
+
+            numbers =
+                numbers.filter(
+                    item =>
+                        String(item.id) !==
+                        String(id)
+                );
+
+
+            saveData();
+
+
+            renderNumbers();
+
+
+            return;
+        }
+
+
+        const days =
+            Math.floor(
+                distance /
+                (1000*60*60*24)
+            );
+
+
+        const hours =
+            Math.floor(
+                (distance %
+                (1000*60*60*24)) /
+                (1000*60*60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (distance %
+                (1000*60*60)) /
+                (1000*60)
+            );
+
+
+        const seconds =
+            Math.floor(
+                (distance %
+                (1000*60)) /
+                1000
+            );
+
+
+        if(days > 0){
+
+            element.textContent =
+                `⏱ ${days} Hari ` +
+                `${hours} Jam ` +
+                `${minutes} Menit ` +
+                `${seconds} Detik`;
+
+        }else{
+
+            element.textContent =
+                `⏱ ${hours} Jam ` +
+                `${minutes} Menit ` +
+                `${seconds} Detik`;
+
+        }
+
+    }
+
+
+    update();
+
+
+    timer =
+        setInterval(
+            update,
+            1000
+        );
+
+
+    timers.push(timer);
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(text){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        String(text);
+
+    return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   ENTER UNTUK LOGIN
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            const loginPage =
+                document.getElementById(
+                    "loginPage"
+                );
+
+
+            if(
+                loginPage.style.display !==
+                "none"
+            ){
+
+                login();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   START
+===================================================== */
+
+renderNumbers();
+
+</script>
+
+</body>
+</html>
